@@ -129,17 +129,35 @@ def join_data():
 
     return data
 
+def get_stations(data):
+  thisdict = {}
+  for item in data:
+    if item["subway"] not in thisdict:
+      thisdict[f"{item['subway']}"] = []
+  return thisdict
+
+
+def order_data(data):
+  key_stations = get_stations(data)
+  stations = []
+  
+  for key in key_stations:
+
+    for item in data:
+      if item["subway"] == key:
+        # print("ok")
+        key_stations[key].append(item)
+  return key_stations
+
 data = join_data()
 
-for i in data:
-    print(i)
 
-"""
-if len(coordinates) == len(names):
-    print("ok")
-else:
-    print("error")
+key_stations = get_stations(data)
+for line_name in key_stations:
+  list_found = order_data(data)[line_name]
+  print(f"\nLinea {line_name}")
+  for item in list_found:
+    station = item["station"]
+    coordinate = item["coordinate"]
 
-print(len(names))
-#print(coordinates)
-"""
+    print(f"{station}: {coordinate}")
