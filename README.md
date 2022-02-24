@@ -18,3 +18,9 @@ Para cada segmento debe indicar:
 - Estación de origen.
 - Estación destino.
 - Número de estaciones que hay que viajar.
+
+
+# Notas
+1. Convertir el archivo kml a xml por medio de una
+página https://anyconv.com/es/convertidor-de-kml-a-xml/ 
+
