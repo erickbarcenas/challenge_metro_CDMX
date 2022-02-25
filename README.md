@@ -25,6 +25,7 @@ Base
 python etapa1.py tu_archivo.kml
 ```
 
+Entrada
 
 ```
 python etapa1.py Metro_CDMX.kml
