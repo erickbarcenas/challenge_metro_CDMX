@@ -209,7 +209,9 @@ def simplify(text):
 def etapa1():
 
     data = join_data()
-    key_stations = get_stations(data)
+    #key_stations = get_stations(data)
+    key_stations = {'1': [], '2': [], '3': [], '4': [], '5': [], '6': [], '7': [], '8': [], '9': [], '12': [], 'A': [], 'B': []}
+    #print(key_stations)
     for line_name in key_stations:
         list_found = order_data(data)[line_name]
         
@@ -225,6 +227,7 @@ def etapa1():
             coordinate = item[3] #item["coordinate"]
 
             print(f"{position} - {station}: {coordinate}")
+        #"""
 
         
 
