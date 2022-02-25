@@ -18,7 +18,7 @@ A partir el archivo .kml proporcionado, obtener la descripción de la todas las 
 ### Ejemplo
 
 ```
-python main.py
+python etapa1.py
 ```
 
 
@@ -37,7 +37,7 @@ Para cada segmento debe indicar:
 ### Ejemplo
 
 ```
-
+python etapa2.py
 ```
 
 # Notas
