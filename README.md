@@ -18,6 +18,14 @@ A partir el archivo .kml proporcionado, obtener la descripción de la todas las 
 ### Ejemplo
 
 Entrada
+
+Base
+
+```
+python etapa1.py tu_archivo.kml
+```
+
+
 ```
 python etapa1.py Metro_CDMX.kml
 ```
@@ -88,8 +96,29 @@ Para cada segmento debe indicar:
 
 ### Ejemplo
 
+Introducir los nombres de las estaciones sin acento (de preferencia)
+
+Base
+
 ```
-python etapa2.py Metro_CDMX.kml origen destino
+python etapa2.py tu_archivo.kml estacion_origen estacion_destino
+```
+
+Entrada
+
+```
+python etapa2.py Metro_CDMX.kml guerrero garibaldi
+```
+
+Salida
+
+
+```
+Linea B
+-------------------------------
+Inicio: guerrero
+Fin: garibaldi
+-------------------------------
 ```
 
 # Notas
