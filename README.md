@@ -17,8 +17,6 @@ A partir el archivo .kml proporcionado, obtener la descripción de la todas las 
 
 ### Ejemplo
 
-Entrada
-
 Base
 
 ```
@@ -95,9 +93,9 @@ Para cada segmento debe indicar:
 - Número de estaciones que hay que viajar.
 
 
-### Ejemplo
+### Ejemplo 1
 
-Introducir los nombres de las estaciones sin acento (de preferencia)
+Introducir los nombres de las estaciones sin acento (de preferencia).
 
 Base
 
@@ -115,10 +113,43 @@ Salida
 
 
 ```
-Linea B
+Linea B - Dirección: Ciudad Azteca
 -------------------------------
 Inicio: guerrero
 Fin: garibaldi
+-------------------------------
+```
+
+
+### Ejemplo 2
+
+Introducir los nombres de las estaciones sin acento (de preferencia).
+
+
+Entrada
+
+```
+python etapa2.py Metro_CDMX.kml guerrero garibaldi
+```
+
+Salida
+
+
+```
+Linea 3 - Dirección: Indios Verdes
+-------------------------------
+Inicio: Eugenia
+Fin: Balderas
+
+-------------------------------
+Transbordar
+-------------------------------
+
+
+Linea 1 - Dirección: Pantitlan
+-------------------------------
+Inicio: Balderas
+Fin: Zaragoza
 -------------------------------
 ```
 
