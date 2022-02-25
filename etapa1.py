@@ -1,14 +1,8 @@
+#!/usr/bin/python
+
+import sys
 from lxml import etree as ET
-#from .functions import string_to_list
 
-tree = ET.parse("./data/Metro_CDMX_Clean.xml")
-
-
-
-
-coordinates = tree.xpath("/Document/Folder[1]/Placemark")
-
-names = tree.xpath("/Document/Folder[2]/Placemark")
 
 
 def string_to_list(your_str):
@@ -41,15 +35,12 @@ def get_line_coordinates(coordinates):
         #print(f"name: {name} \n coordinates: {coordinates_arr}")
 
         obj = {
-            "subway": name,
-            "coordinates_lines": coordinates_lines
+            "subway": name, # nombre de la estación
+            "coordinates_lines": coordinates_lines # arreglo de coordenadas
         }
 
         res.append(obj)
     return res
-
-
-
 
 
 
@@ -69,31 +60,35 @@ def get_name_coordinate(names):
     return name_coordinate
 
 
-#
 
 
-# Subway line with its stations in coordinates
-lines_stations_in_coordinates = get_line_coordinates(coordinates)
 
-"""
-
-"""
-
-# Subway station with its coordinates
-stations = get_name_coordinate(names)
 
 
 def join_data():
 
+    tree = ET.parse(sys.argv[1])
+    # tree = ET.parse("./data/Metro_CDMX_Clean.xml")
+
+    coordinates = tree.xpath("/Document/Folder[1]/Placemark")
+
+    names = tree.xpath("/Document/Folder[2]/Placemark")
+
+    # Subway line with its stations in coordinates
+    lines_stations_in_coordinates = get_line_coordinates(coordinates)
+
+    # Subway station with its coordinates
+    stations = get_name_coordinate(names)
+
     data = []
     for line in stations:
-        station = line["station"]
-        coordinate = line["coordinate"]
+        station = line["station"]  # nombre de la estación
+        coordinate = line["coordinate"] # coordenada de la estación
         
         
-        for idx_station, obj in enumerate(lines_stations_in_coordinates):
+        for idx_station, obj in enumerate(lines_stations_in_coordinates):  # linea del metro
             subway = obj["subway"] # <=== static
-            coordinates_lines = obj["coordinates_lines"]
+            coordinates_lines = obj["coordinates_lines"]  # arreglo de coordenadas
 
             # print(coordinates_lines)
             
@@ -149,15 +144,20 @@ def order_data(data):
         key_stations[key].append(item)
   return key_stations
 
-data = join_data()
 
 
-key_stations = get_stations(data)
-for line_name in key_stations:
-  list_found = order_data(data)[line_name]
-  print(f"\nLinea {line_name}")
-  for item in list_found:
-    station = item["station"]
-    coordinate = item["coordinate"]
+def etapa1():
 
-    print(f"{station}: {coordinate}")
+    data = join_data()
+    key_stations = get_stations(data)
+    for line_name in key_stations:
+        list_found = order_data(data)[line_name]
+        print(f"\nLinea {line_name}")
+        for item in list_found:
+            station = item["station"]
+            coordinate = item["coordinate"]
+
+            print(f"{station}: {coordinate}")
+
+
+etapa1()

@@ -18,7 +18,7 @@ A partir el archivo .kml proporcionado, obtener la descripción de la todas las 
 ### Ejemplo
 
 ```
-python etapa1.py
+python etapa1.py Metro_CDMX.kml
 ```
 
 
@@ -37,7 +37,7 @@ Para cada segmento debe indicar:
 ### Ejemplo
 
 ```
-python etapa2.py
+python etapa2.py Metro_CDMX.kml origen destino
 ```
 
 # Notas
