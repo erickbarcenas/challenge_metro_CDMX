@@ -1,6 +1,6 @@
 # Mexico City Metro Challenge
 
-El reto consiste en crear un programa que dada la estación 'X'  y estación 'Y' se encuentre la ruta más óptima 
+El reto consiste en crear un programa que dada la estación 'X'  y la estación 'Y' se encuentre la ruta más óptima 
 para transportarse dentro del metro de la CDMX.
 
 
