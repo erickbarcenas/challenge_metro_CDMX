@@ -1,7 +1,9 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 import sys
 from lxml import etree as ET
+
 
 
 
@@ -145,6 +147,16 @@ def order_data(data):
   return key_stations
 
 
+# Remove accents
+def simplify(text):
+	import unicodedata
+	try:
+		text = unicode(text, 'utf-8')
+	except NameError:
+		pass
+	text = unicodedata.normalize('NFD', text).encode('ascii', 'ignore').decode("utf-8")
+	return str(text)
+
 
 def etapa1():
 
@@ -154,7 +166,7 @@ def etapa1():
         list_found = order_data(data)[line_name]
         print(f"\nLinea {line_name}")
         for item in list_found:
-            station = item["station"]
+            station = simplify(item["station"])
             coordinate = item["coordinate"]
 
             print(f"{station}: {coordinate}")
