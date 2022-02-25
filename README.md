@@ -2,6 +2,9 @@
 
 El reto consiste en crear un servicio para usar el sistema de transporte metro dentro de la CDMX.
 
+Encontrar la ruta más óptima desde la estación 'A' a otra estación 'B' del metro de la CDMX.
+
+
 Deberá instalar python si aún no lo ha hecho.
 Después instalar lo requerimientos.
 
