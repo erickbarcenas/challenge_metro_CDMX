@@ -1,8 +1,7 @@
 # Mexico City Metro Challenge
 
-El reto consiste en crear un servicio para usar el sistema de transporte metro dentro de la CDMX.
-
-Encontrar la ruta más óptima desde la estación 'A' a otra estación 'B' del metro de la CDMX.
+El reto consiste en crear un programa que dada la estación 'X'  y estación 'Y' se encuentre la ruta más óptima 
+para transportarse dentro del metro de la CDMX.
 
 
 Deberá instalar python si aún no lo ha hecho.
