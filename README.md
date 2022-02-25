@@ -17,8 +17,25 @@ A partir el archivo .kml proporcionado, obtener la descripción de la todas las 
 
 ### Ejemplo
 
+Entrada
 ```
 python etapa1.py Metro_CDMX.kml
+```
+
+Salida
+```
+Linea A
+Acatitla: -99.0056777,19.3647171,0
+Agr▒cola Oriental: -99.0698737,19.4047948,0
+Canal de San Juan: -99.0593863,19.3987332,0
+Guelatao: -99.0356326,19.3851316,0
+La Paz: -98.9609921,19.3506572,0
+Los Reyes: -98.9768708,19.3590285,0
+Pantitl▒n: -99.0722072,19.4153591,0
+Pe▒▒n Viejo: -99.0170825,19.3733205,0
+Santa Mar▒a: -98.9952278137207,19.3613566081823,0
+Tepalcates: -99.0463722,19.3912849,0
+...
 ```
 
 
