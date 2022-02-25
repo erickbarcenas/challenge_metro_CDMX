@@ -129,7 +129,7 @@ Introducir los nombres de las estaciones sin acento (de preferencia).
 Entrada
 
 ```
-python etapa2.py Metro_CDMX.kml guerrero garibaldi
+python etapa2.py Metro_CDMX.kml Eugenia Zaragoza
 ```
 
 Salida
