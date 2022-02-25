@@ -150,7 +150,7 @@ Linea 1 - Dirección: Pantitlan
 -------------------------------
 Inicio: Balderas
 Fin: Zaragoza
--------------------------------
+
 ```
 
 # Notas
