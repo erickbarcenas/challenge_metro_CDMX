@@ -28,6 +28,7 @@ def string_to_list(your_str):
     return res
   
 
+# Get the name of the line and the list of coordinates of each station
 def get_line_coordinates(coordinates):
     res = []
     for element in coordinates:
@@ -36,9 +37,22 @@ def get_line_coordinates(coordinates):
         coordinates_lines = string_to_list(coordinates_str)
         #print(f"name: {name} \n coordinates: {coordinates_arr}")
 
+        # add index to coordinate
+        """
+        obj_list_with_idx = []
+        for idx, item in enumerate(coordinates_lines):
+            build = {
+                'index': idx,
+                'coordinates': obj_list_with_idx
+            }
+            obj_list_with_idx.append(build)
+        """
+
+
+
         obj = {
-            "subway": name, # nombre de la estación
-            "coordinates_lines": coordinates_lines # arreglo de coordenadas
+            "subway": name, # station name
+            "coordinates_lines": coordinates_lines # Coordinate array
         }
 
         res.append(obj)
@@ -57,7 +71,7 @@ def get_name_coordinate(names):
             "station": name,
             "coordinate": str(coordinate).strip()
         }
-        # print(obj)
+        #print(obj)
         name_coordinate.append(obj)
     return name_coordinate
 
@@ -92,19 +106,31 @@ def join_data():
             subway = obj["subway"] # <=== static
             coordinates_lines = obj["coordinates_lines"]  # arreglo de coordenadas
 
+            #index = coordinates_lines["index"]
+            #coordinates = coordinates_lines["coordinates"]
+
+
             # print(coordinates_lines)
             
             code = 0
             try:
                 idx = coordinates_lines.index(coordinate)
 
+                """
                 obj_station = {
                     "subway": subway.split(" ")[1],
+                    "position": idx,
                     "station": station,
                     "coordinate": coordinate
                 }
+                """
+
+                # creating a tuple
+                # subway | position | station | coordinate
+
+                tuple_station = (subway.split(" ")[1], idx, station, coordinate,)
                 
-                data.append(obj_station)
+                data.append(tuple_station)
                 """
                 for item in coordinates_lines:
                     if item == :
@@ -128,23 +154,45 @@ def join_data():
 
 def get_stations(data):
   thisdict = {}
+  #data is a tuple
+  # subway | position | station | coordinate
+
   for item in data:
-    if item["subway"] not in thisdict:
-      thisdict[f"{item['subway']}"] = []
+    if item[0] not in thisdict:
+      thisdict[f"{item[0]}"] = []
   return thisdict
 
 
+# metro stations are added to the keys of a dictionary in the form of an array
 def order_data(data):
-  key_stations = get_stations(data)
-  stations = []
-  
-  for key in key_stations:
 
-    for item in data:
-      if item["subway"] == key:
-        # print("ok")
-        key_stations[key].append(item)
-  return key_stations
+    # data is a tuple
+    # subway | position | station | coordinate
+
+    key_stations = get_stations(data)
+  
+    for key in key_stations:
+
+        for item in data:
+            if item[0] == key:
+            # print("ok")
+                key_stations[key].append(item)
+                
+    
+
+    res = []
+    for key in key_stations:
+        
+        key_stations[key] = sorted(key_stations[key], key=lambda line_list: line_list[1])
+        #print()
+        #key_stations = 
+        
+
+    
+    #sort_key_stations = sorted(key_stations, key=lambda line_list: line_list[1])
+    # 
+    #print(key_stations)
+    return key_stations
 
 
 # Remove accents
@@ -164,12 +212,20 @@ def etapa1():
     key_stations = get_stations(data)
     for line_name in key_stations:
         list_found = order_data(data)[line_name]
+        
+        #pass
+        #print(list_found)# .sort()
+        
         print(f"\nLinea {line_name}")
         for item in list_found:
-            station = simplify(item["station"])
-            coordinate = item["coordinate"]
+            # data is a tuple
+            # subway | position | station | coordinate
+            position = item[1]#item["position"]
+            station = simplify(item[2]) #item["station"]
+            coordinate = item[3] #item["coordinate"]
 
-            print(f"{station}: {coordinate}")
+            print(f"{position} - {station}: {coordinate}")
 
+        
 
 etapa1()
