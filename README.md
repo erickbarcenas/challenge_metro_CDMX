@@ -117,7 +117,6 @@ Linea B - Dirección: Ciudad Azteca
 -------------------------------
 Inicio: guerrero
 Fin: garibaldi
--------------------------------
 ```
 
 
@@ -146,7 +145,7 @@ Transbordar
 -------------------------------
 
 
-Linea 1 - Dirección: Pantitlan
+Linea 1 - Dirección: Pantitlán
 -------------------------------
 Inicio: Balderas
 Fin: Zaragoza
