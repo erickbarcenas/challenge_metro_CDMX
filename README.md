@@ -2,11 +2,25 @@
 
 El reto consiste en crear un servicio para usar el sistema de transporte metro dentro de la CDMX.
 
-Se compone de 4 etapas sucesivas.
+Deberá instalar python si aún no lo ha hecho.
+Después instalar lo requerimientos.
+
+```
+pip install -r requirements.txt
+```
+
+Se compone de 2 etapas sucesivas.
 
 ## Etapa 1
 
 A partir el archivo .kml proporcionado, obtener la descripción de la todas las líneas del metro. Cada línea tiene un nombre y una lista de estaciones. Cada estación tiene un nombre y unas coordenadas geográficas (latitud y longitud). 
+
+### Ejemplo
+
+```
+python main.py
+```
+
 
 ## Etapa 2
 
@@ -19,6 +33,12 @@ Para cada segmento debe indicar:
 - Estación destino.
 - Número de estaciones que hay que viajar.
 
+
+### Ejemplo
+
+```
+
+```
 
 # Notas
 1. Convertir el archivo kml a xml por medio de una
