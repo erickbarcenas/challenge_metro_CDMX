@@ -1,8 +1,15 @@
 #!/usr/bin/python
 
 import sys
+import pandas as pd
+import numpy as np
+import networkx as nx
+
 #from lxml import etree as ET
 from functions.common_etapa1 import etapa1
+from functions.common_etapa2 import get_details_direction, show_datails
+
+from functions.common_etapa2 import create_dict_key_stations, create_dataframe
 
 if len(sys.argv) == 4:
     inputs = list(sys.argv)
@@ -14,21 +21,35 @@ if len(sys.argv) == 4:
     #print("-------------------------------")
     subway_network = etapa1(show_text=0)
 
-    keys_subway_network = list(subway_network.keys())
-
     inputs = [start, end]
+    res = get_details_direction(inputs, subway_network)
 
-    for value_idx, value in enumerate(inputs):
-        for idx, line in enumerate(list(subway_network.values())):
-            for station in line:
-                if station[1].lower() == value.lower():
-                    print(f"------ Linea {keys_subway_network[idx]} ------ ")
-                    if value_idx == 0:
-                        print(f"Origen: {value}")
-                    else:
-                        print(f"Destino: {value}")
-            # print(line)
+    start_details = res["start"]
+    show_datails(start_details, str_param="Origen")
 
+    
+    #df = pd.read_excel('metro.xlsx')
+    print("\n----  Estaciones intermedias ----")
+    #
+    key_stations = create_dict_key_stations(subway_network, type_return="list")
+    df = create_dataframe(key_stations)
+    
+    METRO = nx.from_pandas_edgelist(df,source='Origen',target='Destino') #edge_attr='Longitud de interestación'
+    djk_path= nx.dijkstra_path(METRO, source=start, target=end ) #weight='Longitud de interestación'
+    
+    djk_path.pop()
+    djk_path.reverse()
+    djk_path.pop()
+    #print(djk_path)
+    djk_path.reverse()
+
+    for station in djk_path:
+        print(station)
+    
+
+
+    end_details = res["end"]
+    show_datails(end_details, str_param="Destino")
     print("-------------------------------")
 
     #find(filename, xpath)
