@@ -108,49 +108,41 @@ python etapa2.py tu_archivo.kml estacion_origen estacion_destino
 Entrada
 
 ```
-python etapa2.py Metro_CDMX.kml guerrero garibaldi
+python etapa2.py Metro_CDMX.kml Universidad Zaragoza
 ```
 
 Salida
 
 
 ```
-Linea B - Dirección: Ciudad Azteca
--------------------------------
-Inicio: guerrero
-Fin: garibaldi
-```
+Linea 3
+Origen: Universidad
 
+----  Estaciones intermedias ----
+Copilco
+Miguel Angel de Quevedo (Av. Universidad)
+Viveros
+Coyoacan
+Zapata
+Parque de los Venados
+Eje Central
+Ermita
+Portales
+Nativitas
+Villa de Cortes
+Xola
+Viaducto
+Chabacano
+Jamaica
+Mixiuhca
+Velodromo
+Ciudad Deportiva
+Puebla
+Pantitlan
 
-### Ejemplo 2
+Linea 1
+Destino: Zaragoza
 
-Introducir los nombres de las estaciones sin acento (de preferencia).
-
-
-Entrada
-
-```
-python etapa2.py Metro_CDMX.kml Eugenia Zaragoza
-```
-
-Salida
-
-
-```
-Linea 3 - Dirección: Indios Verdes
--------------------------------
-Inicio: Eugenia
-Fin: Balderas
-
--------------------------------
-Transbordar
--------------------------------
-
-
-Linea 1 - Dirección: Pantitlán
--------------------------------
-Inicio: Balderas
-Fin: Zaragoza
 
 ```
 
